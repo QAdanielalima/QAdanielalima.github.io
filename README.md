@@ -30,9 +30,8 @@ O objetivo deste site é centralizar meus casos de teste, projetos de automaçã
 
 Se você gostou do meu trabalho e quer conversar sobre oportunidades em QA, entre em contato comigo:
 
-- 💼 **LinkedIn:** [Seu perfil do LinkedIn](https://www.linkedin.com/) *(Substitua com o seu link)*
-- ✉️ **E-mail:** [seu-email@email.com](mailto:seu-email@email.com) *(Substitua com o seu e-mail)*
-- 🐙 **GitHub Profile:** [qadanielalima](https://github.com/qadanielalima)
+- 💼 **LinkedIn:** [Seu perfil do LinkedIn](www.linkedin.com/in/daniela-limaqa) *(Substitua com o seu link)*
+- ✉️ **E-mail:** [seu-email@email.com](mailto:danielafaustinodelima@outlook.com) *(Substitua com o seu e-mail)*
 
 ---
 *Desenvolvido com foco em qualidade e usabilidade por **Daniela Lima**.*
