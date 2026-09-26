@@ -1,0 +1,1432 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfólio de QA de Daniela Lima com projetos, casos de teste, competências e experiência de voluntariado.">
+  <meta name="theme-color" content="#120c10">
+  <title>Daniela Lima | QA Tester</title>
+  <style>
+    :root {
+      --bg: #120c10;
+      --bg-soft: #0b1c19;
+      --surface: #241920;
+      --surface-strong: #2e2029;
+      --text: #f7f0f3;
+      --muted: #c4b5bc;
+      --accent: #f0c4d0;
+      --accent-strong: #e0a3b5;
+      --cyan: #c88496;
+      --amber: #e0b878;
+      --rose: #e8848c;
+      --line: rgba(224, 163, 181, 0.13);
+      --line-strong: rgba(240, 196, 208, 0.25);
+      --shadow: 0 26px 80px rgba(0, 0, 0, 0.28);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 92px;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 85% 6%, rgba(200, 132, 150, 0.13), transparent 26rem),
+        radial-gradient(circle at 8% 22%, rgba(240, 196, 208, 0.10), transparent 28rem),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      content: "";
+      opacity: 0.22;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 72%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 100;
+      padding: 10px 14px;
+      border-radius: 10px;
+      color: #180e14;
+      background: var(--accent);
+      transform: translateY(-150%);
+      transition: transform 160ms ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .shell {
+      width: min(calc(100% - 40px), var(--max));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid transparent;
+      background: rgba(18, 12, 16, 0.76);
+      backdrop-filter: blur(18px);
+      transition: border-color 180ms ease, background 180ms ease;
+    }
+
+    .site-header.is-scrolled {
+      border-color: var(--line);
+      background: rgba(18, 12, 16, 0.92);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 760;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line-strong);
+      border-radius: 12px;
+      color: #1d1119;
+      background: linear-gradient(135deg, var(--accent), var(--cyan));
+      box-shadow: 0 8px 28px rgba(224, 163, 181, 0.20);
+      font-size: 0.88rem;
+      font-weight: 850;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-links a {
+      padding: 9px 13px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.91rem;
+      font-weight: 650;
+      transition: color 160ms ease, background 160ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a[aria-current="page"] {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-cta {
+      border: 1px solid var(--line-strong);
+      color: var(--accent) !important;
+    }
+
+    .hero {
+      min-height: calc(100vh - 76px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.82fr);
+      align-items: center;
+      gap: clamp(42px, 7vw, 92px);
+      padding-block: clamp(72px, 10vw, 126px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(240, 196, 208, 0.11);
+      content: "";
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin-bottom: 24px;
+      font-size: clamp(3.1rem, 7vw, 6.6rem);
+      line-height: 0.95;
+      letter-spacing: -0.07em;
+    }
+
+    .hero-highlight {
+      display: block;
+      color: transparent;
+      background: linear-gradient(105deg, var(--accent) 5%, var(--cyan) 92%);
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .hero-copy {
+      max-width: 690px;
+      margin-bottom: 30px;
+      color: var(--muted);
+      font-size: clamp(1.02rem, 1.5vw, 1.22rem);
+    }
+
+    .hero-copy strong {
+      color: var(--text);
+      font-weight: 680;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 18px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      font-weight: 760;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      border-color: transparent;
+      color: #1d1119;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      box-shadow: 0 14px 36px rgba(224, 163, 181, 0.18);
+    }
+
+    .button-secondary {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .button svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .signal-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 20px;
+      margin: 28px 0 0;
+      padding: 0;
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-weight: 700;
+      list-style: none;
+    }
+
+    .signal-list li {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .signal-list li::before {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      content: "";
+    }
+
+    .qa-console {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, rgba(46, 32, 41, 0.94), rgba(26, 18, 23, 0.96));
+      box-shadow: var(--shadow);
+      transform: rotate(1.4deg);
+    }
+
+    .qa-console::before {
+      position: absolute;
+      right: -40%;
+      bottom: -70%;
+      width: 420px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: rgba(200, 132, 150, 0.12);
+      filter: blur(30px);
+      content: "";
+    }
+
+    .console-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 17px 20px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 750;
+    }
+
+    .console-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .console-dots i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.23);
+    }
+
+    .console-dots i:first-child {
+      background: var(--accent);
+    }
+
+    .console-body {
+      position: relative;
+      padding: clamp(24px, 4vw, 36px);
+    }
+
+    .case-id {
+      margin-bottom: 10px;
+      color: var(--cyan);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.76rem;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+    }
+
+    .console-body h2 {
+      max-width: 400px;
+      margin-bottom: 28px;
+      font-size: clamp(1.55rem, 3vw, 2.25rem);
+      line-height: 1.12;
+      letter-spacing: -0.04em;
+    }
+
+    .test-path {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .test-path li {
+      display: grid;
+      grid-template-columns: 26px 1fr auto;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 13px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.025);
+      font-size: 0.83rem;
+      font-weight: 650;
+    }
+
+    .step-number {
+      width: 24px;
+      height: 24px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: var(--accent);
+      background: rgba(240, 196, 208, 0.09);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.72rem;
+    }
+
+    .step-status {
+      color: var(--accent);
+      font-size: 0.69rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .console-note {
+      margin: 22px 0 0;
+      padding: 14px 15px;
+      border-left: 3px solid var(--amber);
+      border-radius: 0 10px 10px 0;
+      color: #f4dfbb;
+      background: rgba(224, 184, 120, 0.08);
+      font-size: 0.8rem;
+    }
+
+    .section {
+      padding-block: clamp(84px, 11vw, 140px);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 1fr minmax(280px, 0.7fr);
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 42px;
+    }
+
+    .section-heading h2 {
+      max-width: 760px;
+      margin-bottom: 0;
+      font-size: clamp(2.35rem, 5vw, 4.45rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .section-heading > p {
+      margin-bottom: 2px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .filter-button {
+      min-height: 38px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: transparent;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 760;
+      transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .filter-button:hover,
+    .filter-button[aria-pressed="true"] {
+      border-color: var(--line-strong);
+      color: #1d1119;
+      background: var(--accent);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project-card {
+      position: relative;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: clamp(24px, 3.4vw, 34px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: rgba(34, 22, 30, 0.72);
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .project-card:hover {
+      border-color: var(--line-strong);
+      background: rgba(46, 32, 41, 0.80);
+      transform: translateY(-4px);
+    }
+
+    .project-card[hidden] {
+      display: none;
+    }
+
+    .project-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .project-type {
+      color: var(--accent);
+      font-size: 0.74rem;
+      font-weight: 820;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .project-index {
+      color: rgba(255, 255, 255, 0.28);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.8rem;
+    }
+
+    .project-card h3 {
+      margin-bottom: 12px;
+      font-size: clamp(1.55rem, 3vw, 2.15rem);
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+    }
+
+    .project-summary {
+      margin-bottom: 22px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .project-points {
+      display: grid;
+      gap: 10px;
+      margin: 0 0 24px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .project-points li {
+      position: relative;
+      padding-left: 22px;
+      color: #dbc8d0;
+      font-size: 0.84rem;
+    }
+
+    .project-points li::before {
+      position: absolute;
+      top: 0.56em;
+      left: 2px;
+      width: 7px;
+      height: 7px;
+      border-radius: 2px;
+      background: var(--cyan);
+      content: "";
+      transform: rotate(45deg);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: auto;
+      padding-top: 4px;
+    }
+
+    .tag {
+      padding: 5px 9px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.025);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.68rem;
+    }
+
+    .case-details {
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .case-details summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.83rem;
+      font-weight: 760;
+      list-style: none;
+    }
+
+    .case-details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .case-details summary::after {
+      width: 24px;
+      height: 24px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--accent);
+      content: "+";
+      transition: transform 160ms ease;
+    }
+
+    .case-details[open] summary::after {
+      content: "−";
+      transform: rotate(180deg);
+    }
+
+    .case-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .case-row {
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    .case-row strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 0.8rem;
+      line-height: 1.35;
+    }
+
+    .case-row p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    .severity {
+      display: inline-block;
+      margin-right: 6px;
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-size: 0.62rem;
+      font-weight: 850;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .severity.alta {
+      color: #f5cad0;
+      background: rgba(232, 132, 140, 0.16);
+    }
+
+    .severity.media {
+      color: #f2deb8;
+      background: rgba(224, 184, 120, 0.16);
+    }
+
+    .severity.validacao {
+      color: #f7dbe3;
+      background: rgba(240, 196, 208, 0.14);
+    }
+
+    .profile-section {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 32px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(135deg, rgba(46, 32, 41, 0.92), rgba(26, 18, 23, 0.96));
+      box-shadow: var(--shadow);
+    }
+
+    .profile-section::after {
+      position: absolute;
+      top: -180px;
+      right: -160px;
+      width: 440px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: rgba(240, 196, 208, 0.08);
+      content: "";
+      filter: blur(12px);
+    }
+
+    .profile-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+      gap: clamp(38px, 7vw, 86px);
+      padding: clamp(30px, 6vw, 70px);
+    }
+
+    .profile-intro h2 {
+      margin-bottom: 18px;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.055em;
+    }
+
+    .profile-intro > p:not(.eyebrow) {
+      color: var(--muted);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 14px;
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .timeline-year {
+      color: var(--accent);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.74rem;
+      font-weight: 800;
+    }
+
+    .timeline-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.84rem;
+    }
+
+    .timeline-item p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    .skills-wrap h3 {
+      margin-bottom: 22px;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+    }
+
+    .skills-groups {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .skill-group {
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .skill-group h4 {
+      margin: 0 0 12px;
+      color: var(--cyan);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .skill-group ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .skill-group li {
+      padding: 7px 9px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: #dbc8d0;
+      background: rgba(255, 255, 255, 0.025);
+      font-size: 0.72rem;
+      font-weight: 650;
+    }
+
+    .contact-strip {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      margin: 0 clamp(30px, 6vw, 70px);
+      padding: 28px 0 clamp(30px, 6vw, 62px);
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-strip p {
+      max-width: 620px;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .contact-strip strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--text);
+      font-size: 1.06rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .contact-link {
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      color: var(--text);
+      font-size: 0.78rem;
+      font-weight: 760;
+      transition: border-color 160ms ease, color 160ms ease;
+    }
+
+    .contact-link:hover {
+      border-color: var(--line-strong);
+      color: var(--accent);
+    }
+
+    .contact-link.is-placeholder {
+      color: var(--amber);
+      cursor: not-allowed;
+    }
+
+    .site-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-block: 28px 42px;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    .footer-mark {
+      color: var(--accent);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 560ms ease, transform 560ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        padding-block: 84px 110px;
+      }
+
+      .qa-console {
+        width: min(100%, 620px);
+        transform: none;
+      }
+
+      .section-heading,
+      .profile-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-grid {
+        gap: 50px;
+      }
+
+      .contact-strip {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .contact-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        width: min(calc(100% - 28px), var(--max));
+      }
+
+      .nav {
+        min-height: 66px;
+      }
+
+      .brand-name {
+        display: none;
+      }
+
+      .nav-links a {
+        padding: 8px 9px;
+        font-size: 0.78rem;
+      }
+
+      .nav-links a:first-child {
+        display: none;
+      }
+
+      .hero {
+        padding-block: 64px 94px;
+      }
+
+      h1 {
+        font-size: clamp(3.15rem, 16vw, 4.55rem);
+      }
+
+      .actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .section {
+        padding-block: 84px;
+      }
+
+      .skills-groups {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-section {
+        border-radius: 20px;
+      }
+
+      .profile-grid {
+        padding: 26px 22px 42px;
+      }
+
+      .contact-strip {
+        margin-inline: 22px;
+      }
+
+      .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media print {
+      :root {
+        --bg: #ffffff;
+        --bg-soft: #ffffff;
+        --surface: #f4ebef;
+        --surface-strong: #f0e6ea;
+        --text: #22161e;
+        --muted: #615058;
+        --line: rgba(34, 22, 30, 0.16);
+        --line-strong: rgba(34, 22, 30, 0.28);
+      }
+
+      body {
+        background: #ffffff;
+      }
+
+      body::before,
+      .site-header,
+      .actions,
+      .filters,
+      .qa-console {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        display: block;
+        padding-block: 38px;
+      }
+
+      .section {
+        padding-block: 38px;
+      }
+
+      .project-card,
+      .profile-section {
+        break-inside: avoid;
+        box-shadow: none;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+  <header class="site-header" id="topo">
+    <nav class="nav shell" aria-label="Navegação principal">
+      <a class="brand" href="#inicio" aria-label="Daniela Lima, início">
+        <span class="brand-mark" aria-hidden="true">DL</span>
+        <span class="brand-name" data-bind="name">Daniela Lima</span>
+      </a>
+      <div class="nav-links">
+        <a href="#inicio">Início</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#perfil">Perfil</a>
+        <a class="nav-cta" href="#contato">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero shell" id="inicio" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow" data-bind="role">QA Tester Júnior</p>
+        <h1 id="hero-title">
+          Tecnologia que facilita
+          <span class="hero-highlight">Experiência que surpreende</span>
+        </h1>
+        <p class="hero-copy" data-bind="intro">
+          Busco contribuir na definição de critérios de qualidade, questionar requisitos desde o início e garantir que as <strong>entregas gerem valor real</strong> para o usuário final 
+        </p>
+        <div class="actions">
+          <a class="button button-primary" href="#projetos">
+            Explorar projetos
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a class="button button-secondary" href="#perfil">Ver competências</a>
+        </div>
+        <ul class="signal-list" aria-label="Áreas de atuação">
+          <li>Web</li>
+          <li>Mobile</li>
+          <li>API</li>
+          <li>Automação</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section class="section shell" id="projetos" aria-labelledby="projects-title">
+      <div class="section-heading reveal">
+        <div>
+          <p class="eyebrow">Projetos selecionados</p>
+          <h2 id="projects-title">Testes aplicados a produtos reais e simulados.</h2>
+        </div>
+        <p>Filtre por contexto e abra os casos em destaque para ver exemplos de cobertura, severidade e resultado esperado.</p>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filtrar projetos">
+        <button class="filter-button" type="button" data-filter="todos" aria-pressed="true">Todos</button>
+        <button class="filter-button" type="button" data-filter="mobile" aria-pressed="false">Mobile</button>
+        <button class="filter-button" type="button" data-filter="web" aria-pressed="false">Web</button>
+        <button class="filter-button" type="button" data-filter="api" aria-pressed="false">API</button>
+      </div>
+
+      <div class="project-grid" id="project-grid" aria-live="polite"></div>
+      <noscript><p>Ative o JavaScript para visualizar os projetos e os casos de teste.</p></noscript>
+    </section>
+
+    <section class="section shell" id="perfil" aria-labelledby="profile-title">
+      <div class="profile-section reveal">
+        <div class="profile-grid">
+          <div class="profile-intro">
+            <p class="eyebrow">Perfil profissional</p>
+            <h2 id="profile-title">Visão analítica, processos transparentes</h2>
+            <p data-bind="about">QA Tester em transição consolidada para tecnologia, com formação prática em testes web, mobile e API. Experiência voluntária em produto Android, colaboração com PO e desenvolvimento, e atenção especial a fluxos críticos e consistência de interface.</p>
+            <div class="timeline" id="timeline"></div>
+          </div>
+
+          <div class="skills-wrap">
+            <h3>Competências e ferramentas</h3>
+            <div class="skills-groups" id="skills-groups"></div>
+          </div>
+        </div>
+
+        <div class="contact-strip" id="contato">
+          <p>
+            <strong>Mentalidade de qualidade?</strong>
+            Disponível para oportunidades de QA Júnior, com preferência por ambientes colaborativos e modelo híbrido.
+          </p>
+          <div class="contact-links" id="contact-links" aria-label="Links de contacto"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <span>© <span id="current-year"></span> <span data-bind="name">Daniela Lima</span>. Portfólio de QA.</span>
+    <a class="footer-mark" href="#inicio">↑ voltar ao topo</a>
+  </footer>
+
+  <script>
+    /*
+      CONTEÚDO EDITÁVEL
+      Atualize textos, projetos, competências e contactos apenas neste objeto.
+      Para ativar um contacto, substitua "#" pelo endereço completo.
+    */
+    const PORTFOLIO = {
+      name: "Daniela Lima",
+      role: "QA Tester Júnior",
+      intro: "Busco contribuir na definição de critérios de qualidade, questionar requisitos desde o início e garantir que as entregas tenham <strong>valor real</strong> para o usuário final",
+      about: "Profissional de Qualidade com experiência em auditoria, processos e conformidade, atualmente em transição para Quality Assurance em tecnologia",
+
+      projects: [
+        {
+          title: "Automation Testing - Urban Routes Web App",
+          type: "Projeto de portfólio",
+          categories: ["mobile", "web"],
+          summary: "Automação de testes end-to-end desenvolvido em Python utilizando Selenium WebDriver.",
+          points: [
+            "Reduzir esforço manual em testes repetitivos.",
+            "Aumentar a confiabilidade das validações.",
+            "Criar uma base escalável para evolução dos testes."
+          ],
+          tools: ["Test Automation", "Python", "Selenium WebDriver", "Page Object Model (POM)", "Explicit Waits"],
+          cases: [
+            {
+              severity: "Validação",
+              title: "Business Impact",
+              detail: "Redução do tempo de validação em cada release, Suporte a integração contínua (CI/CD) e Aumento da confiança nas entregas."
+            },
+
+          ]
+        },
+        {
+          title: "Urban Grocers API",
+          type: "Projeto de API Testing",
+          categories: ["api"],
+          summary: "Teste e validação das regras de negócio, parâmetros e respostas das APIs de gerenciamento de kits e entregas Order and Go.",
+          points: [
+            "Validação de payload e retorno de erros",
+            "Validação de bugs nas extremidades dos intervalos válidos e inválidos.",
+            "Disponibilidade do serviço, validação de endereço e requisições inválidas."
+          ],
+          tools: ["API", "Postman", "JSON", "BVA"],
+          cases: [
+            {
+              severity: "Validação",
+              title: "Parâmetros de entrada do serviço de entrega",
+              detail: "Testes com combinações aceitas e rejeitadas para validar as regras do endpoint."
+            },
+            {
+              severity: "Validação",
+              title: "Inclusão acima de 30 itens no kit gera status 400",
+              detail: "Avaliação da regra de restrição com verificação do código de resposta e do corpo da mensagem retornada."
+            }
+          ]
+        },
+                {
+          title: "Urban Routes",
+          type: "Projeto de portfólio",
+          categories: ["web"],
+          summary: "Validação das funcionalidades de compartilhamento de carros do Urban Routes, com foco em uma experiência rápida, intuitiva e confiável para o usuário final.",
+          points: [
+            "Testes de interface e análise de responsividade",
+            "Comparação com layouts do Figma",
+            "Design de casos de teste e Bug reports"
+          ],
+          tools: ["Jira", "Figma", "Google Chrome","Mozilla Firefox","Google Sheets"],
+          cases: [
+            {
+              severity: "Validação",
+              title: "Ao reservar um carro, não exibe resposta",
+              detail: "Esperado: Exibir modelo e matrícula do carro."
+            },
+            {
+              severity: "Validação",
+              title: "Validação funcionalidade do Botão Casual",
+              detail: "Esperado: Aparecer ícone de pessoa correndo + Tempo of Free Waiting."
+            }
+          ]
+        },
+        {
+          title: "Urban Lunch",
+          type: "Projeto de portfólio",
+          categories: ["mobile", "web"],
+          summary: "Validação dos principais fluxos de usuário, comparação dos requisitos de negócios, os layouts e a qualidade da interação e experiência geral do usuário.",
+          points: [
+            "Validação de UI/UX comparação entre as telas implementadas e os layouts do Figma.",
+            "Verificação das correções e interações entre funcionalidades para que não gerem problemas adicionais.",
+            "Validação da consistência do texto e da correção linguística."
+          ],
+          tools: ["Android", "Figma", "Jira", "Exploratory Testing"],
+          cases: [
+            {
+              severity: "Média",
+              title: "A interação para envio de feedback exigia dois cliques em vez de um.",
+              detail: "Impacto: Redução do engajamento, probabilidade de abandono e frustração do usuário durante a interação."
+            },
+            {
+              severity: "Média",
+              title: "Defeito de localização",
+              detail: "Em vez de português, o botão de confirmação foi exibido em espanhol."
+            }
+          ]
+        }
+      ],
+
+      timeline: [
+      ],
+
+      skills: {
+        "Tipos de teste": ["Functional Testing", "Regression Testing", "Exploratory Testing", "API Testing", "Mobile Testing", "Cross-browser"],
+        "Ferramentas": ["Jira", "Postman", "Chrome DevTools", "Android Studio", "Figma", "Git e GitHub"],
+        "Automação e dados": ["Python", "Selenium WebDriver", "Pytest", "Page Object Model", "SQL básico"],
+        "Práticas": ["Test Cases", "Defect Tracking", "Agile e Scrum", "BVA", "Partição de equivalência", "BDD"]
+      },
+
+      contacts: [
+        { label: "E-mail", url: "mailto:danielafaustinodelima@hotmail.com" },
+        { label: "LinkedIn", url: "https://www.linkedin.com/in/daniela-limaqa/" },
+        { label: "GitHub", url: "https://github.com/QAdanielalima" }
+      ]
+    };
+
+    const escapeHTML = (value) => String(value)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+
+    const slugify = (value) => value
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "");
+
+    function hydrateIdentity() {
+      document.querySelectorAll('[data-bind="name"]').forEach((element) => {
+        element.textContent = PORTFOLIO.name;
+      });
+      document.querySelectorAll('[data-bind="role"]').forEach((element) => {
+        element.textContent = PORTFOLIO.role;
+      });
+      document.querySelectorAll('[data-bind="intro"]').forEach((element) => {
+        element.innerHTML = PORTFOLIO.intro;
+      });
+      document.querySelectorAll('[data-bind="about"]').forEach((element) => {
+        element.textContent = PORTFOLIO.about;
+      });
+    }
+
+    function renderProjects() {
+      const grid = document.querySelector("#project-grid");
+      grid.innerHTML = PORTFOLIO.projects.map((project, index) => {
+        const categories = project.categories.map(escapeHTML).join(" ");
+        const points = project.points.map((point) => `<li>${escapeHTML(point)}</li>`).join("");
+        const tools = project.tools.map((tool) => `<span class="tag">${escapeHTML(tool)}</span>`).join("");
+        const cases = project.cases.map((testCase) => {
+          const severityClass = slugify(testCase.severity).replace("media", "media");
+          return `
+            <div class="case-row">
+              <strong><span class="severity ${severityClass}">${escapeHTML(testCase.severity)}</span>${escapeHTML(testCase.title)}</strong>
+              <p>${escapeHTML(testCase.detail)}</p>
+            </div>`;
+        }).join("");
+
+        return `
+          <article class="project-card reveal" data-category="${categories}">
+            <div class="project-topline">
+              <span class="project-type">${escapeHTML(project.type)}</span>
+              <span class="project-index">0${index + 1}</span>
+            </div>
+            <h3>${escapeHTML(project.title)}</h3>
+            <p class="project-summary">${escapeHTML(project.summary)}</p>
+            <ul class="project-points">${points}</ul>
+            <div class="tag-list" aria-label="Ferramentas e técnicas">${tools}</div>
+            <details class="case-details">
+              <summary>Ver casos em destaque</summary>
+              <div class="case-list">${cases}</div>
+            </details>
+          </article>`;
+      }).join("");
+    }
+
+    function renderTimeline() {
+      const timeline = document.querySelector("#timeline");
+      timeline.innerHTML = PORTFOLIO.timeline.map((item) => `
+        <article class="timeline-item">
+          <span class="timeline-year">${escapeHTML(item.year)}</span>
+          <div>
+            <strong>${escapeHTML(item.title)}</strong>
+            <p>${escapeHTML(item.detail)}</p>
+          </div>
+        </article>`).join("");
+    }
+
+    function renderSkills() {
+      const container = document.querySelector("#skills-groups");
+      container.innerHTML = Object.entries(PORTFOLIO.skills).map(([group, skills]) => `
+        <section class="skill-group">
+          <h4>${escapeHTML(group)}</h4>
+          <ul>${skills.map((skill) => `<li>${escapeHTML(skill)}</li>`).join("")}</ul>
+        </section>`).join("");
+    }
+
+    function renderContacts() {
+      const container = document.querySelector("#contact-links");
+      container.innerHTML = PORTFOLIO.contacts.map((contact) => {
+        const isPlaceholder = !contact.url || contact.url === "#";
+        const attrs = isPlaceholder
+          ? 'href="#contato" class="contact-link is-placeholder" aria-disabled="true" title="Atualize este link no objeto PORTFOLIO"'
+          : `href="${escapeHTML(contact.url)}" class="contact-link" target="_blank" rel="noreferrer"`;
+        return `<a ${attrs}>${escapeHTML(contact.label)}</a>`;
+      }).join("");
+
+      container.querySelectorAll('[aria-disabled="true"]').forEach((link) => {
+        link.addEventListener("click", (event) => event.preventDefault());
+      });
+    }
+
+    function setupFilters() {
+      const buttons = document.querySelectorAll(".filter-button");
+      const cards = document.querySelectorAll(".project-card");
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const filter = button.dataset.filter;
+          buttons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+          cards.forEach((card) => {
+            const categories = card.dataset.category.split(" ");
+            card.hidden = filter !== "todos" && !categories.includes(filter);
+          });
+        });
+      });
+    }
+
+    function setupScrollEffects() {
+      const header = document.querySelector(".site-header");
+      const sections = document.querySelectorAll("main > section[id]");
+      const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      const updateHeader = () => header.classList.toggle("is-scrolled", window.scrollY > 12);
+      updateHeader();
+      window.addEventListener("scroll", updateHeader, { passive: true });
+
+      if (!reducedMotion && "IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+      } else {
+        document.querySelectorAll(".reveal").forEach((element) => element.classList.add("is-visible"));
+      }
+
+      if ("IntersectionObserver" in window) {
+        const sectionObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            navLinks.forEach((link) => {
+              link.removeAttribute("aria-current");
+              if (link.getAttribute("href") === `#${entry.target.id}`) {
+                link.setAttribute("aria-current", "page");
+              }
+            });
+          });
+        }, { rootMargin: "-30% 0px -60%", threshold: 0 });
+        sections.forEach((section) => sectionObserver.observe(section));
+      }
+    }
+
+    hydrateIdentity();
+    renderProjects();
+    renderTimeline();
+    renderSkills();
+    renderContacts();
+    setupFilters();
+    setupScrollEffects();
+    document.querySelector("#current-year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
