@@ -13,7 +13,6 @@ O objetivo deste site é centralizar meus casos de teste, projetos de automaçã
 ### 🛠️ Tecnologias e Recursos Utilizados
 - **HTML5 & CSS3:** Estrutura semântica e estilização moderna.
 - **JavaScript:** Interatividade, filtros de projetos e dinamismo na interface.
-- **Acessibilidade Web (WCAG):** Foco em navegação por teclado, leitores de tela e marcação ARIA.
 - **GitHub Pages:** Hospedagem e deploy contínuo da aplicação.
 
 ---
